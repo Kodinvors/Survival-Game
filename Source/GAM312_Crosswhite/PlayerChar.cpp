@@ -46,6 +46,9 @@ void APlayerChar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// Update health, hunger, and stamina on tick.
+	playerUI->UpdateBars(Health, Hunger, Stamina);
+
 	// While building set building spawn location.
 	if (isBuilding)
 	{

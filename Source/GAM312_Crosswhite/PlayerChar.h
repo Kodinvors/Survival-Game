@@ -8,6 +8,7 @@
 #include "Resource_M.h"
 #include "Kismet/GameplayStatics.h"
 #include "BuildingPart.h"
+#include "PlayerWidget.h"
 #include "PlayerChar.generated.h"
 
 UCLASS()
@@ -98,6 +99,10 @@ public:
 
 	UPROPERTY()
 		ABuildingPart* spawnedPart;
+	
+	// create the playUI for the BP
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPlayerWidget* playerUI;
 
 	// SetHealth
 	UFUNCTION(BlueprintCallable)
