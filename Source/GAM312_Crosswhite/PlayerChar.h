@@ -9,6 +9,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "BuildingPart.h"
 #include "PlayerWidget.h"
+#include "ObjectiveWidget.h"
 #include "PlayerChar.generated.h"
 
 UCLASS()
@@ -102,7 +103,17 @@ public:
 	
 	// create the playUI for the BP
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UPlayerWidget* playerUI;
+		UPlayerWidget* playerUI;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UObjectiveWidget* objWidget;
+
+	// Creates the objectsBuilt float
+	UPROPERTY()
+		float objectsBuilt;
+	// Creates the matsCollected float
+	UPROPERTY()
+		float matsCollected;
 
 	// SetHealth
 	UFUNCTION(BlueprintCallable)

@@ -38,6 +38,12 @@ void APlayerChar::BeginPlay()
 	FTimerHandle StatsTimerHandle;
 	// Set timer to engage every two seconds.
 	GetWorld()->GetTimerManager().SetTimer(StatsTimerHandle, this, &APlayerChar::DecreaseStats, 2.0f, true);
+
+	if (objWidget)
+	{
+		objWidget->UpdatebuildObj(0.0f);
+		objWidget->UpdateObj(0.0f);
+	}
 	
 }
 
@@ -148,6 +154,11 @@ void APlayerChar::FindObject()
 						// Grants player appropriate resource
 						GiveResource(resourceValue, hitName);
 
+						// updates widget with total collectd resourcs
+						matsCollected = matsCollected + resourceValue;
+
+						objWidget->UpdateObj(matsCollected);
+
 						// Dev resource collection confirmation
 						check(GEngine != nullptr);
 						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Collected"));
@@ -172,6 +183,11 @@ void APlayerChar::FindObject()
 	else
 	{
 		isBuilding = false;
+
+		// update widget total number of objects built
+		objectsBuilt = objectsBuilt + 1.0f;
+
+		objWidget->UpdatebuildObj(objectsBuilt);
 	}
 }
 
