@@ -20,6 +20,6 @@ public:
 		void UpdateObj(float matsCollected);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void UpdatebuildObj(float objectsBuild);
+		void UpdatebuildObj(float objectsBuild);
 	
 };

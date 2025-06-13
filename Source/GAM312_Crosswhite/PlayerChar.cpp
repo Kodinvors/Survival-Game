@@ -39,6 +39,7 @@ void APlayerChar::BeginPlay()
 	// Set timer to engage every two seconds.
 	GetWorld()->GetTimerManager().SetTimer(StatsTimerHandle, this, &APlayerChar::DecreaseStats, 2.0f, true);
 
+	// Set objectWidget Values on BeginPlay
 	if (objWidget)
 	{
 		objWidget->UpdatebuildObj(0.0f);
